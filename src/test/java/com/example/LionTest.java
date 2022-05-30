@@ -2,24 +2,27 @@ package com.example;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class LionTest {
 
     @Test
-    public void getKittensReturnCorrectValue() throws Exception {
+    public void doesHaveManeReturnsTrueValue() throws Exception {
+
+        Lion lion = new Lion("Самец");
+        boolean hasManeExpected = true;
+        boolean hasManeActual = lion.doesHaveMane();
+        Assert.assertEquals(hasManeExpected, hasManeActual);
+    }
+
+    @Test
+    public void doesHaveManeReturnsFalseValue() throws Exception {
 
         Lion lion = new Lion("Самка");
-        int expectedKittensCount = 1;
-        int actualKittensCount = lion.getKittens();
-        Assert.assertEquals(expectedKittensCount, actualKittensCount);
-    }
-
-    @Test
-    public void doesHaveMane() {
-    }
-
-    @Test
-    public void getFoodReturnCorrectValue() {
+        boolean hasManeExpected = false;
+        boolean hasManeActual = lion.doesHaveMane();
+        Assert.assertEquals(hasManeExpected, hasManeActual);
     }
 }
