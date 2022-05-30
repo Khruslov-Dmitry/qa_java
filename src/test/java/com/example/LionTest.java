@@ -9,7 +9,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class LionTest {
 
     @Test
-    public void doesHaveManeReturnsTrueValue() throws Exception {
+    public void doesHaveMane_returns_true_value() throws Exception {
 
         Lion lion = new Lion("Самец");
         boolean hasManeExpected = true;
@@ -18,7 +18,7 @@ public class LionTest {
     }
 
     @Test
-    public void doesHaveManeReturnsFalseValue() throws Exception {
+    public void doesHaveMane_returns_false_value() throws Exception {
 
         Lion lion = new Lion("Самка");
         boolean hasManeExpected = false;

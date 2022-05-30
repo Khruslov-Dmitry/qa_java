@@ -16,7 +16,7 @@ public class LionMockTest {
     Feline feline;
 
     @Test
-    public void getKittensReturnCorrectValue() {
+    public void getKittens_return_correct_value() {
 
         Lion lion = new Lion(feline);
         Mockito.when(feline.getKittens()).thenReturn(1);
@@ -26,7 +26,7 @@ public class LionMockTest {
     }
 
     @Test
-    public void getFoodReturnCorrectValue() throws Exception {
+    public void getFood_return_correct_value() throws Exception {
 
         Lion lion = new Lion(feline);
         Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));

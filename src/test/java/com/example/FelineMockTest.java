@@ -16,7 +16,7 @@ public class FelineMockTest {
     Feline feline;
 
     @Test
-    public void eatMeatReturnsCorrectValue() throws Exception {
+    public void eatMeat_return_correct_value() throws Exception {
 
         Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");

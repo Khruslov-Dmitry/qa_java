@@ -6,7 +6,7 @@ import org.junit.Test;
 public class CatTest {
 
     @Test
-    public void getSoundReturnsCorrectValue() {
+    public void getSound_return_correct_value() {
 
         Cat cat = new Cat(new Feline());
         String expectedSound = "Мяу";
