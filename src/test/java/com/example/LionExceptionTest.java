@@ -1,21 +1,21 @@
 package com.example;
 
+import org.junit.Rule;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.rules.ExpectedException;
 
 public class LionExceptionTest {
 
-    @Test
-    public void doesHaveManeThrowsExceptionTest() throws Exception {
+    @Rule
+    public ExpectedException expectedEx = ExpectedException.none();
 
-        Lion lion = new Lion("");
-        try {
-            lion.doesHaveMane();
-        } catch (Exception e) {
-            assertThat(e.getMessage(), containsString("Используйте допустимые значения " +
-                    "пола животного - самец или самка"));
-        }
+    @Test
+    public void doesHaveMane_throw_new_exception() throws Exception {
+        expectedEx.expect(java.lang.Exception.class);
+        expectedEx.expectMessage("Используйте допустимые значения пола животного - самец или самка");
+
+        // do something that should throw the exception...
+        Lion lion = new Lion("xxx");
+        lion.doesHaveMane();
     }
 }
