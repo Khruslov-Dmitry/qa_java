@@ -1,28 +1,33 @@
 package com.example;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.runners.Parameterized;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(Parameterized.class)
 public class LionTest {
 
-    @Test
-    public void doesHaveMane_returns_true_value() throws Exception {
+    private final String sex;
+    private final boolean expectedMane;
 
-        Lion lion = new Lion("Самец");
-        boolean hasManeExpected = true;
-        boolean hasManeActual = lion.doesHaveMane();
-        Assert.assertEquals(hasManeExpected, hasManeActual);
+    public LionTest(String sex, boolean expectedMane) {
+        this.sex = sex;
+        this.expectedMane = expectedMane;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] lionData() {
+        return new Object[][]{
+                {"Самец", true},
+                {"Самка", false},
+        };
     }
 
     @Test
-    public void doesHaveMane_returns_false_value() throws Exception {
-
-        Lion lion = new Lion("Самка");
-        boolean hasManeExpected = false;
-        boolean hasManeActual = lion.doesHaveMane();
-        Assert.assertEquals(hasManeExpected, hasManeActual);
+    public void doesHaveManeTest() throws Exception {
+        Lion lion = new Lion(sex);
+        boolean actual = lion.doesHaveMane();
+        assertEquals(expectedMane, actual);
     }
 }
