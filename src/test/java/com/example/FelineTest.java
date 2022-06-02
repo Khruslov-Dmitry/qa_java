@@ -1,0 +1,34 @@
+package com.example;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class FelineTest {
+
+    @Test
+    public void getFamily_return_correct_value() {
+
+        Feline feline = new Feline();
+        String expectedFamily = "Кошачьи";
+        String actualFamily = feline.getFamily();
+        Assert.assertEquals(expectedFamily, actualFamily);
+    }
+
+    @Test
+    public void getKittensDefaultConstructor_return_correct_value() {
+
+        Feline feline = new Feline();
+        int expectedKittensCount = 1;
+        int actualKittensCount = feline.getKittens();
+        Assert.assertEquals(expectedKittensCount, actualKittensCount);
+    }
+
+    @Test
+    public void getKittensExtendedConstructor_return_correct_value() {
+
+        Feline feline = new Feline();
+        int expectedKittensCount = 3;
+        int actualKittensCount = feline.getKittens(3);
+        Assert.assertEquals(expectedKittensCount, actualKittensCount);
+    }
+}
