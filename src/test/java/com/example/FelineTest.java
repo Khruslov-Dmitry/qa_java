@@ -6,7 +6,7 @@ import org.junit.Test;
 public class FelineTest {
 
     @Test
-    public void getFamily_return_correct_value() {
+    public void getFamilyReturnCorrectValue() {
 
         Feline feline = new Feline();
         String expectedFamily = "Кошачьи";
@@ -15,7 +15,7 @@ public class FelineTest {
     }
 
     @Test
-    public void getKittensDefaultConstructor_return_correct_value() {
+    public void getKittensDefaultConstructorReturnCorrectValue() {
 
         Feline feline = new Feline();
         int expectedKittensCount = 1;
@@ -24,7 +24,7 @@ public class FelineTest {
     }
 
     @Test
-    public void getKittensExtendedConstructor_return_correct_value() {
+    public void getKittensExtendedConstructorReturnCorrectValue() {
 
         Feline feline = new Feline();
         int expectedKittensCount = 3;

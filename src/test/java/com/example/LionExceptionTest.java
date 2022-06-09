@@ -10,7 +10,7 @@ public class LionExceptionTest {
     public ExpectedException expectedEx = ExpectedException.none();
 
     @Test
-    public void doesHaveMane_throw_new_exception() throws Exception {
+    public void doesHaveManeThrowExceptionTest() throws Exception {
         expectedEx.expect(java.lang.Exception.class);
         expectedEx.expectMessage("Используйте допустимые значения пола животного - самец или самка");
 
