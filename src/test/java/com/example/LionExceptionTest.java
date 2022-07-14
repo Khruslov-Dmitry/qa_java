@@ -1,21 +1,29 @@
 package com.example;
 
-import org.junit.Rule;
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
+import static org.junit.Assert.assertEquals;
+
+@RunWith(MockitoJUnitRunner.class)
 public class LionExceptionTest {
 
-    @Rule
-    public ExpectedException expectedEx = ExpectedException.none();
+    @Mock
+    Feline feline;
 
     @Test
-    public void doesHaveMane_throw_new_exception() throws Exception {
-        expectedEx.expect(java.lang.Exception.class);
-        expectedEx.expectMessage("Используйте допустимые значения пола животного - самец или самка");
+    public void doesHaveManeExpectException() {
 
-        // do something that should throw the exception...
-        Lion lion = new Lion("xxx");
-        lion.doesHaveMane();
+        String expectedMsg = "Используйте допустимые значения пола животного - самец или самка";
+
+        try {
+            Lion lion = new Lion("xxx", feline);
+            Assert.fail("Expect Exception");
+        } catch (Exception exception) {
+            assertEquals(expectedMsg, exception.getMessage());
+        }
     }
 }
